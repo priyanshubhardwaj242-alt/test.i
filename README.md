@@ -1,6 +1,9 @@
 # Parking Management System (C++)
 
-![Build and test](https://github.com/YOUR-USERNAME/parking-management-system/actions/workflows/build.yml/badge.svg)
+![Build and test](https://github.com/priyanshubhardwaj242-alt/test.i/actions/workflows/build.yml/badge.svg)
+
+**Author:** Priyanshu Bhardwaj  
+**Repository:** https://github.com/priyanshubhardwaj242-alt/test.i
 
 Object Oriented Programming lab project written in **C++17**. A console application that manages a parking lot with separate slots for bikes, cars and trucks, issues tickets, calculates fees and saves its data to a file.
 
@@ -84,7 +87,7 @@ classDiagram
 
 ## Project structure
 ```
-parking-management-system/
+test.i/
 ├── include/            header files (Vehicle, ParkingSlot, Ticket, ParkingLot, Utils, Exceptions)
 ├── src/                implementation files and main.cpp (menu)
 ├── tests/              test_parking.cpp (assert-based unit tests)
@@ -94,6 +97,12 @@ parking-management-system/
 ```
 
 ## Build and run
+Get the code:
+```bash
+git clone https://github.com/priyanshubhardwaj242-alt/test.i.git
+cd test.i
+```
+
 You need a C++17 compiler (g++ or clang++).
 
 **Linux / macOS / Windows with MinGW or WSL (using make):**
@@ -126,22 +135,6 @@ Rate      : Rs 20.00 / hour
 Entry     : 2026-11-26 03:32
 --------------------------------------
 ```
-
-## Upload to GitHub
-1. Create a new repository on github.com named `parking-management-system` (leave it empty).
-2. In this folder run:
-   ```bash
-   git init
-   git add .
-   git commit -m "Parking Management System in C++"
-   git branch -M main
-   git remote add origin https://github.com/YOUR-USERNAME/parking-management-system.git
-   git push -u origin main
-   ```
-3. Open the **Actions** tab. The workflow builds the project and runs the tests automatically.
-4. Replace `YOUR-USERNAME` in the badge at the top of this README with your GitHub username.
-
-You can also drag the files into the repository using **Add file → Upload files**, but keep the folder structure (`include/`, `src/`, `tests/`, `.github/workflows/`).
 
 ## Possible extensions
 Multiple floors, hourly rate changes by time of day, monthly pass holders, a Qt or web front end.
