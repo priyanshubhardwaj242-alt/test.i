@@ -1,9 +1,12 @@
 # Parking Management System (C++)
 
 ![Build and test](https://github.com/priyanshubhardwaj242-alt/test.i/actions/workflows/build.yml/badge.svg)
+<<<<<<< HEAD
 
 **Author:** Priyanshu Bhardwaj  
 **Repository:** https://github.com/priyanshubhardwaj242-alt/test.i
+=======
+>>>>>>> 0e2a335ea2e2d13273ff506e8b531b972b9102ee
 
 Object Oriented Programming lab project written in **C++17**. A console application that manages a parking lot with separate slots for bikes, cars and trucks, issues tickets, calculates fees and saves its data to a file.
 
@@ -136,5 +139,23 @@ Entry     : 2026-11-26 03:32
 --------------------------------------
 ```
 
+<<<<<<< HEAD
+=======
+## Upload to GitHub
+1. Create a new empty repository on github.com.
+2. In this folder run:
+   ```bash
+   git init
+   git add .
+   git commit -m "Parking Management System in C++"
+   git branch -M main
+   git remote add origin https://github.com/priyanshubhardwaj242-alt/test.i.git
+   git push -u origin main
+   ```
+3. Open the **Actions** tab. The workflow builds the project and runs the tests automatically.
+
+You can also drag the files into the repository using **Add file → Upload files**, but keep the folder structure (`include/`, `src/`, `tests/`, `.github/workflows/`).
+
+>>>>>>> 0e2a335ea2e2d13273ff506e8b531b972b9102ee
 ## Possible extensions
 Multiple floors, hourly rate changes by time of day, monthly pass holders, a Qt or web front end.
