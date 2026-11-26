@@ -1,0 +1,14 @@
+# build outputs
+parking
+test_runner
+*.o
+*.exe
+
+# runtime data
+data/
+test_data/
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store
