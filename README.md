@@ -5,7 +5,7 @@
 **Author:** Priyanshu Bhardwaj  
 **Course:** Object Oriented Programming Lab
 
-A console application written in **C++17** that manages a parking lot with separate slots for bikes, cars and trucks. It issues tickets, calculates fees, and saves its data to a file so nothing is lost between runs.
+Object Oriented Programming lab project written in **C++17**. It is a console application that manages a parking lot with separate slots for bikes, cars and trucks, issues tickets, calculates fees, and saves data to a file so it persists between runs.
 
 ## Features
 
@@ -57,7 +57,7 @@ ParkingLot
 ## Project structure
 
 ```
-parking-management-system/
+test.i/
 |-- include/             header files
 |-- src/                 implementation files and main.cpp (menu)
 |-- tests/               test_parking.cpp (unit tests)
@@ -71,9 +71,11 @@ parking-management-system/
 
 You need a C++17 compiler (g++ or clang++).
 
+Get the code:
+
 ```bash
-git clone https://github.com/priyanshubhardwaj242-alt/parking-management-system.git
-cd parking-management-system
+git clone https://github.com/priyanshubhardwaj242-alt/test.i.git
+cd test.i
 ```
 
 With make (Linux, macOS, or Windows with MinGW or WSL):
@@ -99,6 +101,13 @@ On Windows the program is `parking.exe`.
 Parking a car, then taking it out again:
 
 ```
+===== PARKING MANAGEMENT SYSTEM =====
+ 1. Park a vehicle
+ 2. Exit a vehicle and pay
+ 3. Show slot status
+ 4. Search a vehicle
+ 5. Revenue report
+ 6. Save and quit
 Choose an option: 1
 Vehicle type (1 Bike, 2 Car, 3 Truck): 2
 Registration number: ka 01-ab 1234
