@@ -4,3 +4,5 @@ test_parking
 *.o
 parking_data.csv
 test_parking_data.csv
+parking_data.csv.bak
+test_bad_data.csv

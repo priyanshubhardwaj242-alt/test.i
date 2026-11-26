@@ -1,6 +1,7 @@
 #include "ParkingLot.h"
 #include "Exceptions.h"
 #include "Utils.h"
+#include <filesystem>
 #include <iostream>
 
 namespace {
@@ -42,6 +43,11 @@ int main() {
         lot.load(kDataFile);
     } catch (const ParkingException& e) {
         std::cerr << "Warning: " << e.what() << "\n";
+        std::error_code ec;
+        std::filesystem::copy_file(kDataFile, std::string(kDataFile) + ".bak",
+                                   std::filesystem::copy_options::overwrite_existing, ec);
+        std::cerr << "The old data file was kept as " << kDataFile
+                  << ".bak and the lot starts empty.\n";
     }
 
     bool running = true;

@@ -17,6 +17,6 @@ run: parking
 	./parking
 
 clean:
-	rm -f parking test_parking parking_data.csv test_parking_data.csv *.exe
+	rm -f parking test_parking parking_data.csv test_parking_data.csv test_bad_data.csv *.bak *.exe
 
 .PHONY: all test run clean

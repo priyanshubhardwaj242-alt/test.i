@@ -3,6 +3,7 @@
 #include "Exceptions.h"
 #include <cassert>
 #include <cstdio>
+#include <fstream>
 #include <iostream>
 
 static const std::time_t T0 = 1700000000;
@@ -73,12 +74,25 @@ static void testSaveLoad() {
     std::remove(file.c_str());
 }
 
+static void testBadFileLeavesLotUntouched() {
+    const std::string file = "test_bad_data.csv";
+    {
+        std::ofstream f(file);
+        f << "1,AAAA1111,Car,C9,20,1700000000,0,0\n";  // slot C9 does not exist
+    }
+    ParkingLot lot(0, 1, 0);
+    assert(throwsParking([&] { lot.load(file); }));
+    assert(lot.vehiclesParked() == 0 && lot.freeSlots(VehicleType::Car) == 1);
+    std::remove(file.c_str());
+}
+
 int main() {
     testPlateValidation();
     testPolymorphicRates();
     testFeeCalculation();
     testRules();
     testSaveLoad();
+    testBadFileLeavesLotUntouched();
     std::cout << "All tests passed.\n";
     return 0;
 }

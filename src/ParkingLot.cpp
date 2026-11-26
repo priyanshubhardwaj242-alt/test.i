@@ -118,20 +118,31 @@ void ParkingLot::save(const std::string& path) const {
 void ParkingLot::load(const std::string& path) {
     std::ifstream in(path);
     if (!in) return;  // first run: nothing saved yet
+
+    // Work on copies so a bad file leaves the lot exactly as it was.
+    std::vector<ParkingSlot> slots = slots_;
+    std::map<std::string, Ticket> active;
+    std::vector<Ticket> history;
     int maxId = 0;
+
     for (std::string line; std::getline(in, line);) {
         if (line.empty() || line[0] == '#') continue;
         Ticket t = Ticket::fromRecord(line);
         maxId = std::max(maxId, t.id());
         if (t.isClosed()) {
-            history_.push_back(t);
-        } else {
-            ParkingSlot* s = findSlot(t.slot());
-            if (!s || s->type() != t.type() || !s->isFree())
-                throw ParkingException("Saved data does not match the lot layout: " + line);
-            s->occupy(t.plate());
-            active_.emplace(t.plate(), t);
+            history.push_back(t);
+            continue;
         }
+        auto it = std::find_if(slots.begin(), slots.end(),
+            [&t](const ParkingSlot& s) { return s.label() == t.slot(); });
+        if (it == slots.end() || it->type() != t.type() || !it->isFree())
+            throw ParkingException("Saved data does not match the lot layout: " + line);
+        it->occupy(t.plate());
+        if (!active.emplace(t.plate(), t).second)
+            throw ParkingException("Saved data lists a vehicle twice: " + t.plate());
     }
+    slots_.swap(slots);
+    active_.swap(active);
+    history_.swap(history);
     Ticket::setNextId(maxId + 1);
 }
